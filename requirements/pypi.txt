@@ -1,0 +1,11 @@
+# Django
+django
+pytz
+
+# tools
+django-click
+
+# test
+django-nose
+coverage
+factory_boy
