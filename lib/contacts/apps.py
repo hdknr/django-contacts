@@ -4,6 +4,6 @@ from django.apps import AppConfig
 from django.utils.translation import ugettext_lazy as _
 
 
-class WygConfig(AppConfig):
-    name = 'wyg'
-    verbose_name = _('Wyg')
+class ContactsConfig(AppConfig):
+    name = 'contacts'
+    verbose_name = _('Contacts')
