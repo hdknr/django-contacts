@@ -1,4 +1,3 @@
 # django-contacts
 
-- Contact Tools 
-
+- Contact Tools

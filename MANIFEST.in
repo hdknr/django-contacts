@@ -1,3 +1,6 @@
 include *.md
+recursive-include * *.py
+recursive-include contacts/templates *
+recursive-include contacts/static *
 recursive-exclude * __pycache__
 recursive-exclude * *.py[co]
