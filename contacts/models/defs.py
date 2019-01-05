@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.utils.timezone import now
+from . import methods
 
 
 class Timestamp(models.Model):
@@ -55,7 +56,7 @@ class BasePoc(models.Model):
         abstract = True
 
 
-class Contact(BasePerson, BaseAddress, BaseProfession, BasePoc, Timestamp):
+class Contact(BasePerson, BaseAddress, BaseProfession, BasePoc, Timestamp, methods.Contact):
 
     class Meta:
         abstract = True
@@ -65,6 +66,23 @@ class Family(BasePerson, Timestamp):
     role = models.CharField(max_length=50, null=True, blank=True, default=None)
     suffix = models.CharField(max_length=50, null=True, blank=True, default=None)
     ordinal = models.IntegerField(default=0)
+
+    class Meta:
+        abstract = True
+
+
+class Outbound(Timestamp):
+    title = models.CharField(max_length=100)
+    poc = models.CharField(max_length=50)
+    template = models.TextField(null=True, blank=True, default=None)
+
+    class Meta:
+        abstract = True
+
+
+class OutboundTo(Timestamp):
+    closed = models.BooleanField(default=False)
+    closed_at = models.DateTimeField(_('Closed At'), null=True, default=None, blank=True)
 
     class Meta:
         abstract = True

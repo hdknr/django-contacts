@@ -34,3 +34,14 @@ class ContactAdmin(admin.ModelAdmin):
             'fields': [f.name for f in defs.BasePoc._meta.fields],
         }),
     )
+
+
+@admin.register(models.Outbound)
+class Outbound(admin.ModelAdmin):
+    list_display = [f.name for f in models.Outbound._meta.fields]
+    exclude = ['created_at']
+    readonly_fields = ['updated_at']
+    raw_id_fields = ['contact_from', 'owner']
+    inlines = [
+        inlines.OutboundToInline,
+    ]

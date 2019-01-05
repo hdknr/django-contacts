@@ -9,3 +9,11 @@ class FamilyInline(admin.StackedInline):
     readonly_fields = ['updated_at']
     classes = ['collapse']
     extra = 0
+
+
+class OutboundToInline(admin.TabularInline):
+    model = models.OutboundTo
+    exclude = ['created_at', ]
+    readonly_fields = ['updated_at']
+    raw_id_fields = ['contact']
+    extra = 0
